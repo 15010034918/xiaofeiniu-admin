@@ -46,7 +46,14 @@
 export default {
   data(){
     return {
-      formData:{ }
+      formData:{
+        appName:'',
+        apiUrl:'',
+        appUrl:'',
+        adminUrl:'',
+        icp:'',
+        copyright:'',
+       }
     }
   },
   mounted(){
@@ -54,7 +61,6 @@ export default {
     // 引用复制,两个变量指向一个对象
     // this.formData = this.$store.state.globalSettings;
     // 对象复制,创建出两个一样的对象
-    this.formData={ };
     this.formData.appName=this.$store.state.globalSettings.appName;
     this.formData.appUrl=this.$store.state.globalSettings.appUrl;
     this.formData.adminUrl=this.$store.state.globalSettings.adminUrl;
@@ -64,10 +70,20 @@ export default {
   },
   methods:{
     doSubmot(){
-
+      var url=this.$store.state.globalSettings.apiUrl+'/admin/settings';
+     
+      this.$axios.put(url,this.formData).then((res)=>{
+        if(res.data.code==200){
+          this.$message.success('全局设置修改成功!');
+          // TODO:修改$store中的全局设置
+        }else{
+          this.$message.error('全局设置修改失败!')
+        }
+      }).catch((err)=>{
+        console.log(err);
+      })
     },
     doCancel(){
-      this.formData={ };
       this.formData.appName=this.$store.state.globalSettings.appName;
       this.formData.appUrl=this.$store.state.globalSettings.appUrl;
       this.formData.adminUrl=this.$store.state.globalSettings.adminUrl;

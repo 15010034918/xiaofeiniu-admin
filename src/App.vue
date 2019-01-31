@@ -1,29 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+  mounted(){
+    // 当前组件挂载完成后需要异步请求的全局配置信息
+    var url=this.$store.state.globalSettings.apiUrl+'/admin/settings';
+
+    this.$axios.get(url).then((res)=>{
+      this.$store.commit('setGlobalSettings',res.data);//将全局配置存储到Vuex存储库
+    }).catch((err)=>{
+      console.log(err)
+    })
   }
 }
+</script>   
+
+
+<style lang='scss'>
+ #app{
+   color: #303133;
+   font-family: Arial, Helvetica, "Helvetica Neue",sans-serif,"Hiragino Sans GB","PingFang SC",'微软雅黑',"Microsoft";
+ }
 </style>

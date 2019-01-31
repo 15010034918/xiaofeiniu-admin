@@ -1,5 +1,5 @@
 <template>
   <div class="">
-    <h1>TableDelete</h1>
+    <h1>GlobalSettings</h1>
   </div>
 </template>

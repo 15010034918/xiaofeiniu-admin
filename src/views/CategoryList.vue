@@ -1,5 +1,5 @@
 <template>
-  <div class="CategoryList">
+  <div class="">
     <h1>CategoryList</h1>
   </div>
 </template>

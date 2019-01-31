@@ -1,5 +1,5 @@
 <template>
-  <div class="CategoryDelete">
+  <div class="">
     <h1>CategoryDelete</h1>
   </div>
 </template>

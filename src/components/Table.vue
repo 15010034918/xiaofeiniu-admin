@@ -9,9 +9,7 @@
 </template>
 
 <style lang="scss">
-  .xfn-table{
-
-  }
+  
 </style>
 
 <script>

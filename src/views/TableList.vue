@@ -13,9 +13,24 @@
     </el-row>
   </div>
 </template>
+
 <script>
 import Table from '../components/Table'
 export default {
+  data(){
+    return{
+      tableList:[]
+    }
+  },
+  mounted(){
+    //加载桌台列表
+    var url=this.$store.state.globalSettings.apiUrl + '/admin/table';
+    this.$axios.get(url).then(({data})=>{
+      this.tableList=data;
+    }).catch((err)=>{
+      console.log(err)
+    })
+  },
   components:{
     'xfn-table':Table
   }

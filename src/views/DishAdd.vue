@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
    .xfn-uploader {
     .el-upload{
       border:1px dotted #aaa;

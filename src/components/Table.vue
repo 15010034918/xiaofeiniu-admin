@@ -24,7 +24,20 @@
 </template>
 
 <style lang="scss">
-  
+.xfn-table-info {
+  padding: 3px;
+  text-align: center;
+
+  .xfn-table {
+    width: 90%;
+    height: 120px;
+    line-height: 120px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    box-shadow: 3px -4px 5px #666;
+    margin: 5px auto;
+  }
+}
 </style>
 
 <script>

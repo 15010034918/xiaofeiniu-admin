@@ -3,8 +3,8 @@
     <h1>菜品列表</h1>
     <el-tabs type='border-card'>
       <el-tab-pane v-for="(c,i) in dishList"  :key="(c.index,i.index)">
-        <span slot='label'>
-          <el-badge :value="c.dishList.length" class="">{{c.cname}}</el-badge>
+        <span slot='label' >
+          <el-badge :value="c.dishList.length" class="item">{{c.cname}}</el-badge>
         </span>
         <el-row>
           <el-col v-for="(d,j) in c.dishList" :key="(d.index,j.index)" :xs="12" :md="6" :lg="4" :xl='3' style="padding:10px">
@@ -37,3 +37,12 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .item {
+      margin-top: 7px;
+      margin-right: 40px;
+      border-radius: 30%;
+      padding-bottom: 10px;
+}
+
+</style>

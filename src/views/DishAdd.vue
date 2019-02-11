@@ -5,6 +5,7 @@
       <el-form-item label='菜品图片: '>
         <el-upload :action="uploadAction" :on-success='doUploadSucc' name="dishImg" :show-file-list='false' class='xfn-uploader'>
           <img v-if="imageUrl" :src="imageUrl" alt="">
+           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </el-form-item>
     </el-form>
@@ -54,5 +55,21 @@ export default {
     img{
       max-width:100%;
     }
+    .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+    &:hover{
+       color: #409EFF;
+    }
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
   }
 </style>
